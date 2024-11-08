@@ -149,8 +149,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\Alkohol.jpg" />
     <Content Include="Content\Images\CarlsbergPilsner.jpg" />
     <Content Include="Content\Images\Harold.jpg" />
+    <Content Include="Content\Images\Indkøbsvogn.jpg" />
+    <Content Include="Content\Images\Kvittering.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
