@@ -1,0 +1,27 @@
+﻿.salepage {
+    display: grid;
+    grid-template-columns: 2fr 1fr;  /*2/3 for order-lines, 1/3 for icons */
+    grid-template-areas: "icons order-lines"; /* Define the areas */
+    grid-auto-rows:auto;
+    padding: 10px;
+    height: 70vh;
+    position: fixed;
+    width: 90%;
+
+}
+
+.order-lines {
+    grid-area: order-lines;
+    border: 2px solid black;
+    text-align:left;
+    padding: 10px;
+    overflow:hidden;
+}
+
+.icons {
+    grid-area: icons;
+    border: 2px solid black;
+    text-align:center;
+    padding: 10px;
+    overflow:hidden;
+}

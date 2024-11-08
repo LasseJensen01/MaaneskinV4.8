@@ -20,8 +20,10 @@ namespace WebGUI {
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                //New CSS goes here!
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/Sale.css"));
         }
     }
 }
