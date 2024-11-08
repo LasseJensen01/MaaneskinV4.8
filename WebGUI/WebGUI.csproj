@@ -156,6 +156,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\Alkohol.jpg" />
+    <Content Include="Content\Images\CarlsbergPilsner.jpg" />
+    <Content Include="Content\Images\Harold.jpg" />
+    <Content Include="Content\Images\Indkøbsvogn.jpg" />
+    <Content Include="Content\Images\Kvittering.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -190,12 +195,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Item\EditItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\NewFolder1\" />
     <Folder Include="Data\" />
-    <Folder Include="Views\Item\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
