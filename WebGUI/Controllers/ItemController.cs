@@ -13,7 +13,7 @@ namespace WebGUI.Controllers
         public ActionResult EditItem()
         {
             //Replace this with a parameter (name?) that retrives the item from the database
-            var imageName = "Harold.jpg";
+            var imageName = "CarlsbergPilsner.jpg";
             var item = new Item("Pilsner", 7.5, imageName);
 
             return View("EditItem", item);
