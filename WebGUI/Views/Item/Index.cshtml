@@ -1,0 +1,27 @@
+﻿@using WebGUI.Models
+@model List<Item>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @{ 
+            foreach(Item i in Model)
+            {
+                <img src="~/Content/Images/@i.ImgURL" alt="Image Not Found" width="200" height="200"/>
+            }
+        }
+    </div>
+    <div class="formDiv">
+
+    </div>
+</body>
+</html>
