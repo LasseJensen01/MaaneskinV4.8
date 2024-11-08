@@ -1,15 +1,23 @@
 ﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark fixed-bottom">
     <div class="container">
-        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+            <ul class="navbar-nav flex-grow-1 d-flex justify-content-center align-items-center">
+                <li>
+                    <a href="@Url.Action("Index", "Home")">
+                        <img class="nav-link" src="~/Content/Images/Indkøbsvogn.jpg" width="100" height="100" />
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("About", "Home")">
+                        <img class="nav-link" src="~/Content/Images/Alkohol.jpg" width="100" height="100" />
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Contact", "Home")">
+                        <img class="nav-link" src="~/Content/Images/Kvittering.jpg" width="100" height="100" />
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
