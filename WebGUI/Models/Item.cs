@@ -15,8 +15,9 @@ namespace WebGUI.Models
         public double Price { get; set; }
         public string ImgURL { get; set; }
 
-        public Item(string name, double price, string imgURL)
+        public Item(int id, string name, double price, string imgURL)
         {
+            ID = id;
             Name = name;
             Price = price;
             ImgURL = imgURL;

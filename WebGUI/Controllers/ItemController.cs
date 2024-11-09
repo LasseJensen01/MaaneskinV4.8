@@ -14,26 +14,34 @@ namespace WebGUI.Controllers
             //Get all items from the database, for now just create some dummy items
             var items = new List<Item>
             {
-                new Item("Pilsner", 7.5, "CarlsbergPilsner.jpg"),
-                new Item("IPA", 8.5, "CarlsbergIPA.jpg"),
-                new Item("Jul",10,"CarlsbergJul.jpg"),
-                new Item("Sport", 7.5, "Sport.jpg"),
-                new Item("Special",10,"CarlsbergSpecial.jpg"),
+                new Item(0, "Pilsner", 7.5, "CarlsbergPilsner.jpg"),
+                new Item(1, "IPA", 8.5, "CarlsbergIPA.jpg"),
+                new Item(2, "Jul",10,"CarlsbergJul.jpg"),
+                new Item(3, "Sport", 7.5, "Sport.jpg"),
+                new Item(4, "Special",10,"CarlsbergSpecial.jpg"),
             };
-            ViewBag.ID = items[0].ID;
 
             return View("Index", items);
         }
         // GET: Item
-        public ActionResult EditItem(int ID)
+        public ActionResult EditItem(int id)
         {
             //CALL TO DATABASE!!!! any way
+            var items = new List<Item>
+            {
+                new Item(0, "Pilsner", 7.5, "CarlsbergPilsner.jpg"),
+                new Item(1, "IPA", 8.5, "CarlsbergIPA.jpg"),
+                new Item(2, "Jul",10,"CarlsbergJul.jpg"),
+                new Item(3, "Sport", 7.5, "Sport.jpg"),
+                new Item(4, "Special",10,"CarlsbergSpecial.jpg"),
+            };
+            var fromlist = items[id];
 
             //Replace this with a parameter (name?) that retrives the item from the database
-            var imageName = "CarlsbergPilsner.jpg";
-            var item = new Item("Pilsner", 7.5, imageName);
+            var imageName = "Harold.jpg";
+            var item = new Item(8, "Harold", 7.5, imageName);
 
-            return View("EditItem", item);
+            return PartialView("_EditItem", fromlist);
         }
         public ActionResult SaveItem(Item item)
         {
