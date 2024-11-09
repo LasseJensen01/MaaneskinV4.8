@@ -10,8 +10,11 @@ namespace DAL.Context {
     internal class MaaneskinInitializer : CreateDatabaseIfNotExists<MaaneskinContext>{
         protected override void Seed(MaaneskinContext context) {
             // Make an Init Data for the DB here
-            context.Items.Add(new Item(1, "Bajer", 10.00, "img1.png"));
-            context.Items.Add(new Item(2, "Bræz", 12.00, "img2.png"));
+            context.Items.Add(new Item(0, "Pilsner", 7.5, "CarlsbergPilsner.jpg"));
+            context.Items.Add(new Item(1, "IPA", 8.5, "CarlsbergIPA.jpg"));
+            context.Items.Add(new Item(2, "Jul", 10, "CarlsbergJul.jpg"));
+            context.Items.Add(new Item(3, "Sport", 7.5, "Sport.jpg"));
+            context.Items.Add(new Item(4, "Special", 10, "CarlsbergSpecial.jpg"));
             context.SaveChanges();
         }
 

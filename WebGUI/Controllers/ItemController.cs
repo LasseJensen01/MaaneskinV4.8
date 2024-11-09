@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebGUI.Models;
+using DTO.Models;
 
 namespace WebGUI.Controllers
 {
@@ -36,10 +36,6 @@ namespace WebGUI.Controllers
                 new Item(4, "Special",10,"CarlsbergSpecial.jpg"),
             };
             var fromlist = items[id];
-
-            //Replace this with a parameter (name?) that retrives the item from the database
-            var imageName = "Harold.jpg";
-            var item = new Item(8, "Harold", 7.5, imageName);
 
             return PartialView("_EditItem", fromlist);
         }

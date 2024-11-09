@@ -1,11 +1,5 @@
-﻿@using WebGUI.Models
+﻿@using DTO.Models
 @model Item
-
-@functions
-{
-    //Add stuff here as when it makes sense
-
-}
 
 <div class="imgDiv">
     <img src="~/Content/Images/@Model.ImgURL" alt="Image Not Found" />
@@ -13,6 +7,7 @@
 
 <div class="formDiv">
     @Html.EditorForModel()
+
     <button name="" type="submit">OK</button>
 </div>
 
