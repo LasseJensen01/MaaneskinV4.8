@@ -26,18 +26,14 @@ namespace WebGUI.Controllers
         {
             var bll = new BLL.BLL.ItemBLL();
             bll.UpdateItem(item);
-            // Redirect to Index should show the updated item
             return RedirectToAction("Index");
         }
-
-
         [HttpPost]
         public ActionResult AddItem(Item item)
         {
             string view = "Index";
             var bll = new BLL.BLL.ItemBLL();
             bll.AddItem(item);
-            // Redirect to Index should show the new item
             return RedirectToAction("Item", view);
         }
     }
