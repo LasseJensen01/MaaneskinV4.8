@@ -15,7 +15,7 @@ namespace WebGUI.Controllers
             var itemModels = BLL.BLL.ItemBLL.GetItems();
             ViewBag.items = itemModels;
 
-            return View();
+            return View("SaleHomepage", itemModels);
         }
 
         [HttpPost]

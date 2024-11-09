@@ -1,0 +1,48 @@
+﻿@model DTO.Models.Item
+
+<div class="item-container">
+    <a href="javascript:void(0);" onclick="showNumpad(@Model.ID)">
+        <img src="@Model.ImgURL" alt="@Model.Name" class="item-image" />
+    </a>
+    <div class="item-details">
+        <span class="item-price">@Model.Price kr.</span>
+        <span class="item-name">@Model.Name</span>
+    </div>
+</div>
+
+<script>
+    // Placeholder for future logic; you can replace `showNumpad` with real logic.
+    function showNumpad(itemId) {
+        console.log("Clicked on item ID:", itemId);
+        // Trigger your numpad or other logic here
+    }
+</script>
+
+<style>
+    /* Basic styling for the template */
+    .item-container {
+        text-align: center;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .item-image {
+        width: 100px; /* Set appropriate dimensions */
+        height: auto;
+    }
+
+    .item-details {
+        margin-top: 5px;
+    }
+
+    .item-price {
+        font-weight: bold;
+        color: #333;
+        display: block;
+    }
+
+    .item-name {
+        color: #666;
+        display: block;
+    }
+</style>
