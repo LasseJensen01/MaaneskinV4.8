@@ -158,10 +158,14 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Images\Alkohol.jpg" />
+    <Content Include="Content\Images\CarlsbergIPA.jpg" />
+    <Content Include="Content\Images\CarlsbergJul.jpg" />
     <Content Include="Content\Images\CarlsbergPilsner.jpg" />
+    <Content Include="Content\Images\CarlsbergSpecial.jpg" />
     <Content Include="Content\Images\Harold.jpg" />
     <Content Include="Content\Images\Indkøbsvogn.jpg" />
     <Content Include="Content\Images\Kvittering.jpg" />
+    <Content Include="Content\Images\Sport.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -198,6 +202,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Sale\SaleHomepage.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\_UpdateItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,6 +235,16 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{21c13c56-6b6c-450e-a454-d3b0cb1df59f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{c42aa079-d8ca-4840-baab-2396fe3be3cc}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

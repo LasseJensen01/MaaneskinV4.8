@@ -1,0 +1,43 @@
+﻿@using DTO.Models
+@model List<Item>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+        @{
+            foreach (Item it in Model)
+            {
+                <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="200" height="200" onclick="updateEditDiv(@it.ID)"/>
+            }
+        }
+    </div>
+    <div id="EditDiv">
+        Click on an image to edit the item.
+    </div>
+
+    <script>
+        function updateEditDiv(id) {
+            $.ajax({
+                url: '/Item/UpdateItem/' + id,
+                type: 'GET',
+                success: function (result) {
+                    $('#EditDiv').html(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

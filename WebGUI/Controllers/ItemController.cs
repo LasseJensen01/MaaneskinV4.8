@@ -3,20 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebGUI.Models;
+using DTO.Models;
 
 namespace WebGUI.Controllers
 {
     public class ItemController : Controller
     {
-        // GET: Item
-        public ActionResult EditItem()
+        [HttpGet]
+        public ActionResult Index()
         {
-            //Replace this with a parameter (name?) that retrives the item from the database
-            var imageName = "CarlsbergPilsner.jpg";
-            var item = new Item("Pilsner", 7.5, imageName);
-
-            return View("EditItem", item);
+            var items = new BLL.BLL.ItemBLL().GetAllItems();
+            return View("Index", items);
+        }
+        
+        public ActionResult UpdateItem(int id)
+        {
+            var item = new BLL.BLL.ItemBLL().GetItem(id);
+            return PartialView("_UpdateItem", item);
+        }
+        [HttpPost]
+        public ActionResult UpdateItem(Item item)
+        {
+            var bll = new BLL.BLL.ItemBLL();
+            bll.UpdateItem(item);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public ActionResult AddItem(Item item)
+        {
+            string view = "Index";
+            var bll = new BLL.BLL.ItemBLL();
+            bll.AddItem(item);
+            return RedirectToAction("Item", view);
         }
     }
 }
