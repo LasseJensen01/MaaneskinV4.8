@@ -22,12 +22,12 @@ namespace WebGUI.Controllers
             return PartialView("_UpdateItem", item);
         }
         [HttpPost]
-        public void UpdateItem(Item item)
+        public ActionResult UpdateItem(Item item)
         {
             var bll = new BLL.BLL.ItemBLL();
             bll.UpdateItem(item);
             // Redirect to Index should show the updated item
-            RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
 
