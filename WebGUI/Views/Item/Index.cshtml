@@ -28,7 +28,7 @@
     <script>
         function updateEditDiv(id) {
             $.ajax({
-                url: '/Item/EditItem/' + id,
+                url: '/Item/UpdateItem/' + id,
                 type: 'GET',
                 success: function (result) {
                     $('#EditDiv').html(result);

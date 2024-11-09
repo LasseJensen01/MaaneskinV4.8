@@ -22,9 +22,10 @@ namespace DAL.Mapper {
         }
         public static void Update(DTO.Models.Item item, Models.Item dataitem) {
             if (item != null && dataitem != null) {
-                item.Name = dataitem.Name;
-                item.Price = dataitem.Price;
-                item.ImgURL = dataitem.ImgURL;
+                dataitem.ID = item.ID;
+                dataitem.Name = item.Name;
+                dataitem.Price = item.Price;
+                dataitem.ImgURL = item.ImgURL;
             }
             else {
                 dataitem = null;

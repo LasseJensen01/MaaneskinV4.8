@@ -6,9 +6,13 @@
 </div>
 
 <div class="formDiv">
-    @Html.EditorForModel()
+    @using (Html.BeginForm("UpdateItem","Item"))
+    {
+        @Html.EditorForModel()
 
-    <button name="" type="submit">OK</button>
+        <button name="" type="submit">OK</button>
+    }
+
 </div>
 
 <style>

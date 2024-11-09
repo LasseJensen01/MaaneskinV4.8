@@ -9,50 +9,36 @@ namespace WebGUI.Controllers
 {
     public class ItemController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
-            //Dummy items for debugging
-            var dummy = new List<Item>
-            {
-                new Item(0, "Pilsner", 7.5, "CarlsbergPilsner.jpg"),
-                new Item(1, "IPA", 8.5, "CarlsbergIPA.jpg"),
-                new Item(2, "Jul",10,"CarlsbergJul.jpg"),
-                new Item(3, "Sport", 7.5, "Sport.jpg"),
-                new Item(4, "Special",10,"CarlsbergSpecial.jpg"),
-            };
-
-            //Db call to get all items
             var items = new BLL.BLL.ItemBLL().GetAllItems();
             return View("Index", items);
         }
         
-        public ActionResult EditItem(int id)
+        public ActionResult UpdateItem(int id)
         {
-            //CALL TO DATABASE!!!! any way
-            var items = new List<Item>
-            {
-                new Item(0, "Pilsner", 7.5, "CarlsbergPilsner.jpg"),
-                new Item(1, "IPA", 8.5, "CarlsbergIPA.jpg"),
-                new Item(2, "Jul",10,"CarlsbergJul.jpg"),
-                new Item(3, "Sport", 7.5, "Sport.jpg"),
-                new Item(4, "Special",10,"CarlsbergSpecial.jpg"),
-            };
-            var fromlist = items[id];
+            var item = new BLL.BLL.ItemBLL().GetItem(id);
+            return PartialView("_UpdateItem", item);
+        }
+        [HttpPost]
+        public void UpdateItem(Item item)
+        {
+            var bll = new BLL.BLL.ItemBLL();
+            bll.UpdateItem(item);
+            // Redirect to Index should show the updated item
+            RedirectToAction("Index");
+        }
 
-            return PartialView("_EditItem", fromlist);
-        }
-        public ActionResult SaveItem(Item item)
+
+        [HttpPost]
+        public ActionResult AddItem(Item item)
         {
-            //Save the item to the database
-            return RedirectToAction("Index", "Home");
-        }
-        public ActionResult DeleteItem(int id)
-        {
-            //Do stuff here to remove the item from the database
-            //Dont actually delete the item, just set a flag to mark it as deleted
-            
-            //If error, 
-            return RedirectToAction("Index", "Item");
+            string view = "Index";
+            var bll = new BLL.BLL.ItemBLL();
+            bll.AddItem(item);
+            // Redirect to Index should show the new item
+            return RedirectToAction("Item", view);
         }
     }
 }
