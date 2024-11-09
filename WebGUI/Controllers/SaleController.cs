@@ -12,8 +12,12 @@ namespace WebGUI.Controllers
         public ActionResult SaleHomepage()
         {
             //fetch items and populate page
-            var itemModels = BLL.BLL.ItemBLL.GetItems();
-            ViewBag.items = itemModels;
+            //var itemModels = BLL.BLL.ItemBLL.GetItems();
+            //ViewBag.items = itemModels;
+
+            //Dummy data
+            var itemModels = new List<DTO.Models.Item>();
+            itemModels.Add(new DTO.Models.Item(1, "Bajer", 10.00, "~/Content/Images/CarlsbergPilsner.jpg"));
 
             return View("SaleHomepage", itemModels);
         }
