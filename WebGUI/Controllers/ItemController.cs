@@ -25,7 +25,7 @@ namespace WebGUI.Controllers
             var items = new BLL.BLL.ItemBLL().GetAllItems();
             return View("Index", items);
         }
-        // GET: Item
+        
         public ActionResult EditItem(int id)
         {
             //CALL TO DATABASE!!!! any way
