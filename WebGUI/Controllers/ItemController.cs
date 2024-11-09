@@ -11,8 +11,8 @@ namespace WebGUI.Controllers
     {
         public ActionResult Index()
         {
-            //Get all items from the database, for now just create some dummy items
-            var items = new List<Item>
+            //Dummy items for debugging
+            var dummy = new List<Item>
             {
                 new Item(0, "Pilsner", 7.5, "CarlsbergPilsner.jpg"),
                 new Item(1, "IPA", 8.5, "CarlsbergIPA.jpg"),
@@ -21,6 +21,8 @@ namespace WebGUI.Controllers
                 new Item(4, "Special",10,"CarlsbergSpecial.jpg"),
             };
 
+            //Db call to get all items
+            var items = new BLL.BLL.ItemBLL().GetAllItems();
             return View("Index", items);
         }
         // GET: Item

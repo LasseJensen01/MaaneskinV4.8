@@ -12,8 +12,15 @@ namespace DAL.Repositories {
                 return Mapper.ItemMapper.Map(item);
             }    
         }
+        public static List<DTO.Models.Item> GetAllItems() {
+            using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
+                List<DAL.Models.Item> items = context.Items.ToList();
+                return Mapper.ItemMapper.Map(items);
+            }
+        }
         public static void AddItem(DTO.Models.Item item) {
             // TODO
         }
+
     }
 }

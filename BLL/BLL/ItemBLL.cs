@@ -9,6 +9,8 @@ namespace BLL.BLL {
         public DTO.Models.Item GetItem(int id) {
             return DAL.Repositories.ItemRepositorie.GetItem(id);
         }
-
+        public List<DTO.Models.Item> GetAllItems() {
+            return DAL.Repositories.ItemRepositorie.GetAllItems();
+        }
     }
 }
