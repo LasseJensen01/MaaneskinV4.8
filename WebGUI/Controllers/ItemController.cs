@@ -28,13 +28,16 @@ namespace WebGUI.Controllers
             bll.UpdateItem(item);
             return RedirectToAction("Index");
         }
+        public ActionResult AddItem()
+        {
+            return View("AddItem");
+        }
         [HttpPost]
         public ActionResult AddItem(Item item)
         {
-            string view = "Index";
             var bll = new BLL.BLL.ItemBLL();
             bll.AddItem(item);
-            return RedirectToAction("Item", view);
+            return RedirectToAction("Index");
         }
     }
 }

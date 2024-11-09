@@ -1,0 +1,24 @@
+﻿@using DTO.Models
+@model Item
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddItem</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("AddItem", "Item"))
+        {
+            @Html.EditorForModel()
+
+            <button name="" type="submit">OK</button>
+        }
+    </div>
+</body>
+</html>
