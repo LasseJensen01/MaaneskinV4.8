@@ -39,5 +39,16 @@ namespace WebGUI.Controllers
             bll.AddItem(item);
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteItem() 
+        {
+            return View("DeleteItem");
+        }
+        [HttpPost]
+        public ActionResult DeleteItem(int id)
+        {
+            var bll = new BLL.BLL.ItemBLL();
+            bll.DeleteItem(id);
+            return RedirectToAction("Index");
+        }
     }
 }

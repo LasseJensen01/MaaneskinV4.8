@@ -9,12 +9,14 @@ namespace DAL.Repositories {
         public static DTO.Models.Item GetItem(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.Item item = context.Items.Find(id);
+                item = item.active ? item : null;
                 return Mapper.ItemMapper.Map(item);
             }    
         }
         public static List<DTO.Models.Item> GetAllItems() {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 List<DAL.Models.Item> items = context.Items.ToList();
+                items = items.Where(i => i.active).ToList();
                 return Mapper.ItemMapper.Map(items);
             }
         }
@@ -29,6 +31,12 @@ namespace DAL.Repositories {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.Item dataitem = context.Items.Find(item.ID);
                 Mapper.ItemMapper.Update(item, dataitem);
+                context.SaveChanges();
+            }
+        }
+        public static void DeleteItem(int id) {
+            using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
+                context.Items.Find(id).active = false;
                 context.SaveChanges();
             }
         }

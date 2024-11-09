@@ -18,6 +18,8 @@ namespace BLL.BLL {
         public void UpdateItem(DTO.Models.Item item) {
             DAL.Repositories.ItemRepositorie.UpdateItem(item);
         }
-
+        public void DeleteItem(int id) {
+            DAL.Repositories.ItemRepositorie.DeleteItem(id);
+        }
     }
 }
