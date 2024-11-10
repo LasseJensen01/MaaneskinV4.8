@@ -17,7 +17,8 @@ namespace WebGUI.Controllers
 
             //Dummy data
             var itemModels = new List<DTO.Models.Item>();
-            itemModels.Add(new DTO.Models.Item(1, "Bajer", 10.00, "~/Content/Images/CarlsbergPilsner.jpg"));
+            itemModels.Add(new DTO.Models.Item(1, "Bajer", 10.00, "/Content/Images/CarlsbergPilsner.jpg"));
+            itemModels.Add(new DTO.Models.Item(2, "Bræz", 20.00, "/Content/Images/Alkohol.jpg"));
 
             return View("SaleHomepage", itemModels);
         }

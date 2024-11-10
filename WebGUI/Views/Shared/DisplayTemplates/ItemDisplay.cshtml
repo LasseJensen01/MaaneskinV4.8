@@ -5,8 +5,8 @@
         <img src="@Model.ImgURL" alt="@Model.Name" class="item-image" />
     </a>
     <div class="item-details">
+        <span class="item-name">@Model.Name: </span>
         <span class="item-price">@Model.Price kr.</span>
-        <span class="item-name">@Model.Name</span>
     </div>
 </div>
 
@@ -24,11 +24,13 @@
         text-align: center;
         margin: 10px;
         cursor: pointer;
+        border: 2px solid black;
+        width:110px;
     }
 
     .item-image {
         width: 100px; /* Set appropriate dimensions */
-        height: auto;
+        height: 100px;
     }
 
     .item-details {
@@ -38,11 +40,11 @@
     .item-price {
         font-weight: bold;
         color: #333;
-        display: block;
+        display: inline;
     }
 
     .item-name {
         color: #666;
-        display: block;
+        display: inline;
     }
 </style>

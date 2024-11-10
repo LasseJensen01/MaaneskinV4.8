@@ -15,9 +15,10 @@
     </div>
 
     <div class="icons">
-    @foreach (var item in Model)
-            {
-                @Html.DisplayFor(items => item)
-            }
+        @foreach (var item in Model)
+        {
+            @Html.DisplayFor(Model => item, "ItemDisplay")
+        }
+
     </div>
 </div>
