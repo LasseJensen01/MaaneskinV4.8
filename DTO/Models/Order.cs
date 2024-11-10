@@ -29,7 +29,7 @@ namespace DTO.Models
             {
                 orderString += orderLine.ToString() + "\n";
             }
-            orderString += $"Total: {GetTotal()}DKK.";
+            orderString += $"Total: {GetTotal()} kr.";
             return orderString;
         }
     }
