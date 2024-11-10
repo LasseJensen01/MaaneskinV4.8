@@ -13,7 +13,12 @@ namespace WebGUI.Controllers
         public ActionResult Index()
         {
             BLL.BLL.ItemBLL ItemBLL = new BLL.BLL.ItemBLL();
-            return View(ItemBLL.GetItem(0));
+            
+            return View(ItemBLL.GetItem(4));
+        }
+        public ActionResult TestOrder() {
+            BLL.BLL.OrderBLL OrderBLL = new BLL.BLL.OrderBLL();
+            return View(OrderBLL.GetOrder(1));
         }
     }
 }

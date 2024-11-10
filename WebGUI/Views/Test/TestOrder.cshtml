@@ -1,0 +1,22 @@
+﻿@model DTO.Models.Order
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+    <h2>Order Details</h2>
+
+    <div>
+        <h3>@Model.ID</h3>
+        @foreach (var orderline in Model.OrderLines) {
+            <p>@orderline.Quantity</p>
+            <p>@orderline.Item.Name</p>
+        }
+
+
+    </div>
+
+</body>
+</html>
