@@ -25,3 +25,9 @@
     padding: 10px;
     overflow:hidden;
 }
+
+.current-order {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}

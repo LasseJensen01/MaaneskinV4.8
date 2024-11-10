@@ -1,7 +1,8 @@
 ﻿@model DTO.Models.Item
 
 <div class="item-container">
-    <a href="javascript:void(0);" onclick="showNumpad(@Model.ID)">
+    <!--<a href="javascript:void(0);" onclick="showNumpad(@Model.ID)">-->
+    <a href="@Url.Action("AddItemToOrder", "Sale", new { itemId = Model.ID })">
         <img src="@Model.ImgURL" alt="@Model.Name" class="item-image" />
     </a>
     <div class="item-details">
@@ -13,7 +14,7 @@
 <script>
     // Placeholder for future logic; you can replace `showNumpad` with real logic.
     function showNumpad(itemId) {
-        console.log("Clicked on item ID:", itemId);
+        alert("Clicked on item ID: " + itemId);
         // Trigger your numpad or other logic here
     }
 </script>
