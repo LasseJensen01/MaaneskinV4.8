@@ -12,9 +12,9 @@ namespace DAL.Repositories {
                 return Mapper.OrderLineMapper.Map(orderLinje);
             }
         }
-        public static List<DTO.Models.OrderLine> GetAllOrderLinjes() {
+        public static List<DTO.Models.OrderLine> GetAllOrderLinjes(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
-                List<DAL.Models.OrderLine> orderLinjes = context.OrderLines.ToList();
+                List<DAL.Models.OrderLine> orderLinjes = context.OrderLines.Where(ol => ol.OrderID == id).ToList();
                 return Mapper.OrderLineMapper.Map(orderLinjes);
             }
         }
