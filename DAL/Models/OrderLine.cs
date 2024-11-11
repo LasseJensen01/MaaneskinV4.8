@@ -7,7 +7,7 @@ using System.Web;
 namespace DAL.Models
 {
     public class OrderLine {
-        public int ID { get; set; }
+        public int ID { get; set; } // Maybe Redundant
         public int Quantity { get; set; }
         public Item Item { get; set; }
         // Foreign key

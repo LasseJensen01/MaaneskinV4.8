@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories {
     public class OrderLinjeRepositorie {
+        /* ONLY GETS ONE ORDERLINE. REDUNDANT?
         public static DTO.Models.OrderLine GetOrderLinje(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.OrderLine orderLinje = context.OrderLines.Find(id);
@@ -16,6 +17,7 @@ namespace DAL.Repositories {
                 return Mapper.OrderLineMapper.Map(orderLinje);
             }
         }
+        */
         public static List<DTO.Models.OrderLine> GetAllOrderLinjes(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 List<DAL.Models.OrderLine> orderLinjes = context.OrderLines.Where(ol => ol.OrderID == id).ToList();
@@ -25,6 +27,7 @@ namespace DAL.Repositories {
                 return Mapper.OrderLineMapper.Map(orderLinjes);
             }
         }
+        /*
         public static void AddOrderLinje(DTO.Models.OrderLine orderLinje) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.OrderLine dataOrderLinje = Mapper.OrderLineMapper.Map(orderLinje);
@@ -32,6 +35,7 @@ namespace DAL.Repositories {
                 context.SaveChanges();
             }
         }
+        */
         public static void UpdateOrderLinje(DTO.Models.OrderLine orderLinje) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.OrderLine dataOrderLinje = context.OrderLines.Find(orderLinje.ID);
