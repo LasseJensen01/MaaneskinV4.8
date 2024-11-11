@@ -11,8 +11,9 @@ namespace DTO.Models
         public int Quantity { get; set; }
         public Item Item { get; set; }
 
-        public OrderLine(int quantity, Item item)
+        public OrderLine(int id, int quantity, Item item)
         {
+            ID = id;
             Quantity = quantity;
             Item = item;
         }
@@ -22,7 +23,7 @@ namespace DTO.Models
         }
         public override string ToString()
         {
-            return $"{Quantity} x {Item.Name} = {Item.Price}DKK.";
+            return $"{Quantity} x {Item.Name} à {Item.Price} kr.";
         }
     }
 }

@@ -20,7 +20,12 @@ namespace DAL.Context {
          * but keep it in the code
          */
         public DbSet<Item> Items { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderLine> OrderLines { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+
+            
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 

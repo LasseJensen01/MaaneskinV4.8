@@ -15,6 +15,11 @@ namespace DAL.Context {
             context.Items.Add(new Item(2, "Jul", 10, "CarlsbergJul.jpg"));
             context.Items.Add(new Item(3, "Sport", 7.5, "Sport.jpg"));
             context.Items.Add(new Item(4, "Special", 10, "CarlsbergSpecial.jpg"));
+
+            Order order = new Order(1);
+            order.AddOrderLine(new OrderLine(1, 10, new Item(1, "Tuborg", 10.00, "img.url")));
+            context.Orders.Add(order);
+
             context.SaveChanges();
         }
 

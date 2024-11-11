@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,10 +162,12 @@
     <Content Include="Content\Images\CarlsbergIPA.jpg" />
     <Content Include="Content\Images\CarlsbergJul.jpg" />
     <Content Include="Content\Images\CarlsbergPilsner.jpg" />
+    <Content Include="Content\Images\DiskoMåne.jpg" />
     <Content Include="Content\Images\CarlsbergSpecial.jpg" />
     <Content Include="Content\Images\Harold.jpg" />
     <Content Include="Content\Images\Indkøbsvogn.jpg" />
     <Content Include="Content\Images\Kvittering.jpg" />
+    <Content Include="Content\Sale.css" />
     <Content Include="Content\Images\Sport.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -202,8 +205,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Sale\SaleHomepage.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ItemDisplay.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\_UpdateItem.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\TestOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

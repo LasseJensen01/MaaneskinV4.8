@@ -5,31 +5,35 @@ using System.Web;
 
 namespace DAL.Models
 {
-    public class Order
-    {
+    public class Order {
         public int ID { get; set; }
-        public List<OrderLine> OrderLines { get; set; }
-        public Order(List<OrderLine> orderLines)
-        {
-            OrderLines = orderLines;
+        public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>(); // This is cursed
+        public Order() {
+
         }
-        public double GetTotal()
-        {
+        public Order(int id) {
+            ID = id;
+        }
+
+        public void AddOrderLine(OrderLine orderLine) {
+            this.OrderLines.Add(orderLine);
+        }
+        public bool RemoveOrderline(OrderLine orderLine) {
+            return this.OrderLines.Remove(orderLine);
+        }
+        public double GetTotal() {
             double total = 0;
-            foreach (OrderLine orderLine in OrderLines)
-            {
+            foreach (OrderLine orderLine in OrderLines) {
                 total += orderLine.GetTotal();
             }
             return total;
         }
-        public override string ToString()
-        {
+        public override string ToString() {
             string orderString = "";
-            foreach (OrderLine orderLine in OrderLines)
-            {
+            foreach (OrderLine orderLine in OrderLines) {
                 orderString += orderLine.ToString() + "\n";
             }
-            orderString += $"Total: {GetTotal()}DKK.";
+            orderString += $"Total: {GetTotal()} kr.";
             return orderString;
         }
     }
