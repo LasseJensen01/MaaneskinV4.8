@@ -1,7 +1,50 @@
 ﻿
 @{
-    ViewBag.Title = "SaleHomepage";
+    ViewBag.Title = "Register sales";
 }
 
-<h2>SaleHomepage</h2>
+@model List<DTO.Models.Item>
 
+<h2>Register Sales</h2>
+<div class="salepage">
+    <form class="order-lines">
+        <h3>Order</h3>
+        <table class="current-order">
+            <tr>
+                <th>Amount</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+
+            @if (@ViewBag.order != null)
+            {
+                foreach (DTO.Models.OrderLine ol in ViewBag.order.OrderLines)
+                {
+                    <tr>
+                        <td>@ol.Quantity</td>
+                        <td>@ol.Item.Name</td>
+                        <td>@ol.Item.Price kr.</td>
+                        <td>@ol.GetTotal() kr.</td>
+                    </tr>
+                }
+            }
+        </table>
+        <hr />
+        
+            @if (ViewBag.order != null) 
+            {
+                <p style="text-align:right; font-weight:700">Total: @ViewBag.order.GetTotal() kr.</p>
+            }
+        
+        <button style="position:absolute; bottom:20px">Reset</button>
+        <button style="position:absolute; bottom:20px;right:20px">Register</button>
+    </form>
+
+    <div class="icons">
+        @foreach (var item in Model)
+        {
+            @Html.DisplayFor(Model => item, "ItemDisplay")
+        }
+    </div>
+</div>

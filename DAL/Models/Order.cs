@@ -33,7 +33,7 @@ namespace DAL.Models
             foreach (OrderLine orderLine in OrderLines) {
                 orderString += orderLine.ToString() + "\n";
             }
-            orderString += $"Total: {GetTotal()}DKK.";
+            orderString += $"Total: {GetTotal()} kr.";
             return orderString;
         }
     }
