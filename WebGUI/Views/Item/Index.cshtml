@@ -1,7 +1,7 @@
 ﻿@using DTO.Models
 @model List<Item>
 @{
-    Layout = null;
+    //Layout = "~/Shared/_Layout";
 }
 
 <!DOCTYPE html>
@@ -13,16 +13,28 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div>
-        @{
-            foreach (Item it in Model)
-            {
-                <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="200" height="200" onclick="updateEditDiv(@it.ID)"/>
-            }
-        }
-    </div>
-    <div id="EditDiv">
-        Click on an image to edit the item.
+    <div class="inventorypage">
+        <div class="itemarea">
+         <h2>INVENTORY</h2>
+            <table>
+                @{
+                    foreach (Item it in Model)
+                    {
+                    <tr id="@it.ID"  onclick="updateEditDiv(@it.ID)">
+                        <td style="width:55px">
+                            <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="50" height="50" />
+                        </td>
+                        <td style="font-weight:700">
+                            @it.Name
+                        </td>
+                    </tr>
+                }
+                }
+                </table>
+            </div>
+        <div class="editarea" id="EditDiv">
+            <h2>EDIT</h2>
+        </div>
     </div>
 
     <script>
@@ -32,6 +44,10 @@
                 type: 'GET',
                 success: function (result) {
                     $('#EditDiv').html(result);
+                    $('tr').css("border", "2px solid grey");
+                    let rowID = id;
+                    $(`#${rowID}`).css("border", "2px solid red");
+                    
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
@@ -39,5 +55,39 @@
             });
         }
     </script>
+    <style>
+        .inventorypage {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            grid-template-areas: "itemarea editarea";
+            grid-auto-rows:auto;
+            padding: 10px;
+            height: 70vh;
+            position:fixed;
+            width:90%
+        }
+
+        .itemarea{
+            grid-area:itemarea;
+            border: 2px solid black;
+            text-align: left;
+            padding:10px;
+            overflow:auto;
+        }
+
+        .editarea {
+            grid-area: editarea;
+            border: 2px solid black;
+            text-align: left;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        table, tr{
+            border: 2px solid grey;
+            border-spacing: 50px
+
+        }
+    </style>
 </body>
 </html>
