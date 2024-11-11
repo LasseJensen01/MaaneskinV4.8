@@ -9,7 +9,9 @@ namespace DAL.Repositories {
         public static DTO.Models.Order GetOrder(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.Order order = context.Orders.Find(id);
-                return Mapper.OrderMapper.Map(order);
+                DTO.Models.Order DTOOrder = Mapper.OrderMapper.Map(order);
+                DTOOrder.OrderLines = OrderLinjeRepositorie.GetAllOrderLinjes(DTOOrder.ID);
+                return DTOOrder;
             }
         }
         public static List<DTO.Models.Order> GetAllOrders() {
