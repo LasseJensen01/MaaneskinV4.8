@@ -37,10 +37,10 @@
                 <p style="text-align:right; font-weight:700">Total: @ViewBag.order.GetTotal() kr.</p>
             }
         
-        <button style="position:absolute; bottom:20px">Reset</button>
+        
         <button style="position:absolute; bottom:20px;right:20px">Register</button>
     </form>
-
+    <button style="position:absolute; bottom:20px" onclick="location.href='@Url.Action("ResetOrder", "Sale")'">Reset</button>
     <div class="icons">
         @foreach (var item in Model)
         {
