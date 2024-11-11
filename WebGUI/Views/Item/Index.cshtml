@@ -15,24 +15,25 @@
 <body>
     <div class="inventorypage">
         <div class="itemarea">
+         <h2>INVENTORY</h2>
             <table>
                 @{
                     foreach (Item it in Model)
                     {
-                        <tr id="@it.ID"  onclick="updateEditDiv(@it.ID)">
-                                            <td style="width:55px">
-                                                <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="50" height="50" />
-                                            </td>
-                            <td style="font-weight:700">
-                                @it.Name
-                            </td>
+                    <tr id="@it.ID"  onclick="updateEditDiv(@it.ID)">
+                        <td style="width:55px">
+                            <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="50" height="50" />
+                        </td>
+                        <td style="font-weight:700">
+                            @it.Name
+                        </td>
                     </tr>
                 }
                 }
                 </table>
             </div>
         <div class="editarea" id="EditDiv">
-            Click on an image to edit the item.
+            <h2>EDIT</h2>
         </div>
     </div>
 
@@ -43,6 +44,7 @@
                 type: 'GET',
                 success: function (result) {
                     $('#EditDiv').html(result);
+                    $('tr').css("border", "2px solid grey");
                     let rowID = id;
                     $(`#${rowID}`).css("border", "2px solid red");
                     
@@ -82,7 +84,9 @@
         }
 
         table, tr{
-            border: 2px solid grey
+            border: 2px solid grey;
+            border-spacing: 50px
+
         }
     </style>
 </body>
