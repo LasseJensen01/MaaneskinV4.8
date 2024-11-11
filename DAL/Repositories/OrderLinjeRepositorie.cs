@@ -19,6 +19,9 @@ namespace DAL.Repositories {
         public static List<DTO.Models.OrderLine> GetAllOrderLinjes(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 List<DAL.Models.OrderLine> orderLinjes = context.OrderLines.Where(ol => ol.OrderID == id).ToList();
+                foreach (var order in orderLinjes) {
+                    order.Item = context.Items.Find(order.ItemID);
+                }
                 return Mapper.OrderLineMapper.Map(orderLinjes);
             }
         }

@@ -12,7 +12,7 @@
         <h3>@Model.ID</h3>
         @foreach (var orderline in Model.OrderLines) {
             <p>@orderline.Quantity</p>
-            <p>@orderline.Item</p>
+            <p>@orderline.Item.Name</p>
             <p>Skal være item her</p>
         }
 

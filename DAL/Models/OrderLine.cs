@@ -14,6 +14,10 @@ namespace DAL.Models
         [ForeignKey("Order")]
         public int OrderID { get; set; }
         public Order Order { get; set; }
+        //Foreign Key
+        [ForeignKey("Item")]
+        public int ItemID { get; set; }
+       
 
         public OrderLine() {
 
