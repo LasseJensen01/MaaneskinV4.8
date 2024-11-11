@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # Custom Edits
 Web.config
+/WebGUI/Web.config
+/WebGUI/Web.Debug.config
+/WebGUI/Web.Release.config
