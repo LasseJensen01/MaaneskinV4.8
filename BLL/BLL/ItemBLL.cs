@@ -30,7 +30,7 @@ namespace BLL.BLL {
         /// </returns>
         public static List<DTO.Models.Item> GetItems()
         {
-            return DAL.Repositories.ItemRepositorie.GetItems();
+            return DAL.Repositories.ItemRepositorie.GetAllItems();
         }
 
     }

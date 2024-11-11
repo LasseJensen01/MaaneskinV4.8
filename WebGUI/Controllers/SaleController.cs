@@ -37,7 +37,8 @@ namespace WebGUI.Controllers
             if (order == null)
             {
                 var orderLines = new List<DTO.Models.OrderLine>();
-                order = new DTO.Models.Order(orderLines);
+                order = new DTO.Models.Order(1);
+                order.OrderLines = orderLines;
                 Session["Order"] = order;
             }
             
@@ -52,7 +53,7 @@ namespace WebGUI.Controllers
             }
             else 
             {
-                var orderLine = new DTO.Models.OrderLine(1, item);
+                var orderLine = new DTO.Models.OrderLine(1, 1, item);
                 order.OrderLines.Add(orderLine);
             }
 
