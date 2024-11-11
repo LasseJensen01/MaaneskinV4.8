@@ -1,0 +1,20 @@
+﻿@using DTO.Models
+@model List<Item>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Delete Item</title>
+</head>
+<body>
+    <div>
+        @{
+            foreach (Item it in Model)
+            {
+                <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="200" height="200" onclick="SelectItem(@it.ID)"/>
+            }
+        }
+    </div>
+</body>
+</html>
