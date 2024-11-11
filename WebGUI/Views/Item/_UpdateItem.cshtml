@@ -1,15 +1,17 @@
 ﻿@using DTO.Models
 @model Item
 
+<!--
 <div class="imgDiv">
     <img src="~/Content/Images/@Model.ImgURL" alt="Image Not Found" />
 </div>
+    -->
 
 <div class="formDiv">
-    @using (Html.BeginForm("UpdateItem","Item"))
+    @using (Html.BeginForm("UpdateItem", "Item"))
     {
         @Html.EditorForModel()
-
+        <br />
         <button name="" type="submit">OK</button>
     }
 
