@@ -15,6 +15,10 @@ namespace DAL.Models
         public int OrderID { get; set; }
         public Order Order { get; set; }
 
+        public OrderLine() {
+
+        }
+
         public OrderLine(int id, int quantity, Item item)
         {
             ID = id;
