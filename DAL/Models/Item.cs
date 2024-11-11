@@ -13,13 +13,14 @@ namespace DAL.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public string ImgURL { get; set; }
-
+        public bool IsDeleted { get; set; }
         public Item(int id, string name, double price, string imgURL)
         {
             ID = id;
             Name = name;
             Price = price;
             ImgURL = imgURL;
+            IsDeleted = false;
         }
         public Item() { }
     }

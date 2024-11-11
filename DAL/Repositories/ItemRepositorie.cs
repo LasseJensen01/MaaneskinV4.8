@@ -32,5 +32,12 @@ namespace DAL.Repositories {
                 context.SaveChanges();
             }
         }
+        public static void DeleteItem(int id) {
+            using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
+                Models.Item item = context.Items.Find(id);
+                item.IsDeleted = true;
+                context.SaveChanges();
+            }
+        }
     }
 }
