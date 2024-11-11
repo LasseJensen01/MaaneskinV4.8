@@ -65,8 +65,15 @@ namespace WebGUI.Controllers
       
         public ActionResult RegisterSale()
         {
-            //for each orderline in order: DB.Item =- Orderline.item.count in DB
+            var order = Session["Order"] as DTO.Models.Order;
+            if (order != null || order.OrderLines.Count > 0)
+            {
+                var bllOrder = new BLL.BLL.OrderBLL();
+                bllOrder.AddOrder(order);
+            }
 
+            //Reset the order and return to the sale homepage
+            Session["Order"] = null;
             return View("SaleHomepage", getItems());
         }
     }
