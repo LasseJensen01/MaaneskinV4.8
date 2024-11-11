@@ -16,7 +16,9 @@ namespace WebGUI.Controllers
             itemModels.Add(new DTO.Models.Item(1, "Bajer", 10.00, "/Content/Images/CarlsbergPilsner.jpg"));
             itemModels.Add(new DTO.Models.Item(2, "Bræz", 20.00, "/Content/Images/Alkohol.jpg"));
 
-            return itemModels;
+            var items = new BLL.BLL.ItemBLL().GetAllItems();
+
+            return items;
         }
 
         // GET: Sale

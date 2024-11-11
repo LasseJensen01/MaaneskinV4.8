@@ -3,7 +3,7 @@
 <div class="item-container">
     <!--<a href="javascript:void(0);" onclick="showNumpad(@Model.ID)">-->
     <a href="@Url.Action("AddItemToOrder", "Sale", new { itemId = Model.ID })">
-        <img src="@Model.ImgURL" alt="@Model.Name" class="item-image" />
+        <img src="~/Content/Images/@Model.ImgURL" alt="@Model.Name" class="item-image" />
     </a>
     <div class="item-details">
         <span class="item-name">@Model.Name: </span>
