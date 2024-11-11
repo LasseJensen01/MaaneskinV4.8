@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Mapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace DAL.Repositories {
         public static DTO.Models.OrderLine GetOrderLinje(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.OrderLine orderLinje = context.OrderLines.Find(id);
+                DTO.Models.OrderLine dtoLinje = OrderLineMapper.Map(orderLinje);
+                orderLinje.Item = context.Items.Find(orderLinje.Item.ID);
+                Console.WriteLine(orderLinje.Item);
                 return Mapper.OrderLineMapper.Map(orderLinje);
             }
         }
