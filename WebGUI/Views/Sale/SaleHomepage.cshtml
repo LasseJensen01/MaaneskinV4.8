@@ -47,11 +47,16 @@
     </div>
     <script>
         function salesAlertAndRedirect() {
-            
-            alert("Sale successfull");
-            window.location.href = '@Url.Action("RegisterSale", "Sale")';    
-        }
+            const orderLinesExist = @((ViewBag.order?.OrderLines?.Count > 0).ToString().ToLower());
 
+            if (!orderLinesExist) {
+                alert("Error: No items in order");
+                return;
+            }
+
+            alert("Sale successfull");
+            window.location.href = '@Url.Action("RegisterSale", "Sale")';
+        }
         document.getElementById("regButton").addEventListener("click", salesAlertAndRedirect)
     </script>
 </div>
