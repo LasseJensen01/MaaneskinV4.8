@@ -52,9 +52,9 @@
                 type: 'GET',
                 success: function (result) {
                     $('#EditDiv').html(result);
-                    $('tr').css("border", "2px solid grey");
+                    $('tr').css("background-color", "#FFFFFF"); //white
                     let rowID = id;
-                    $(`#${rowID}`).css("border", "2px solid red");
+                    $(`#${rowID}`).css("background-color", "#C0C0C0"); //light grey
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
@@ -90,10 +90,9 @@
             overflow: hidden;
         }
 
-        table, tr{
+        table, tr {
             border: 2px solid grey;
             border-spacing: 50px
-
         }
     </style>
 </body>
