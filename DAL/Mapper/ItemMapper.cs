@@ -9,14 +9,14 @@ namespace DAL.Mapper {
 
         public static DTO.Models.Item Map(Models.Item item) {
             if (item != null) {
-                return new DTO.Models.Item(item.ID, item.Name, item.Price, item.ImgURL);
+                return new DTO.Models.Item(item.ID, item.Name, item.Price, item.ImgURL, item.Quantity);
             }
             else { return null; }
         }
 
         public static Models.Item Map(DTO.Models.Item item) {
             if (item != null) {
-                return new Models.Item(item.ID, item.Name, item.Price, item.ImgURL);
+                return new Models.Item(item.ID, item.Name, item.Price, item.ImgURL, item.Quantity);
             }
             else { return null; }
         }
@@ -26,6 +26,7 @@ namespace DAL.Mapper {
                 dataitem.Name = item.Name;
                 dataitem.Price = item.Price;
                 dataitem.ImgURL = item.ImgURL;
+                dataitem.Quantity = item.Quantity;
             }
             else {
                 dataitem = null;
@@ -35,7 +36,7 @@ namespace DAL.Mapper {
             List<DTO.Models.Item> retur = new List<DTO.Models.Item>();
             if (items != null && items.Count > 0) {
                 foreach (var item in items) {
-                    retur.Add(new DTO.Models.Item(item.ID, item.Name, item.Price, item.ImgURL));
+                    retur.Add(new DTO.Models.Item(item.ID, item.Name, item.Price, item.ImgURL, item.Quantity));
                 }
                 return retur;
             }
