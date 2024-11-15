@@ -17,6 +17,11 @@
         <div class="itemarea">
          <h2>INVENTORY</h2>
             <table>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th style="text-align: right; padding: 10px">Quantity</th>
+                </tr>
                 @{
                     foreach (Item it in Model)
                     {
@@ -24,8 +29,11 @@
                         <td style="width:55px">
                             <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="50" height="50" />
                         </td>
-                        <td style="font-weight:700">
+                        <td style="font-weight:700; width:30%; text-align:left">
                             @it.Name
+                        </td>
+                        <td style="font-weight: 700; width: auto; text-align:right; padding: 10px">
+                            @it.Quantity
                         </td>
                     </tr>
                 }
@@ -47,7 +55,6 @@
                     $('tr').css("border", "2px solid grey");
                     let rowID = id;
                     $(`#${rowID}`).css("border", "2px solid red");
-                    
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
