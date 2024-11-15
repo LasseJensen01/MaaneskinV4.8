@@ -23,6 +23,15 @@ namespace DAL.Repositories {
         public static void AddOrder(DTO.Models.Order order) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 Models.Order dataOrder = Mapper.OrderMapper.Map(order);
+                
+
+                foreach (Models.OrderLine ol in dataOrder.OrderLines) {
+                    ol.Item.Quantity = ol.Item.Quantity - ol.Quantity;
+                    ItemRepositorie.UpdateItem(Mapper.ItemMapper.Map(ol.Item));
+                    // Tells the DbContext the item changes are a modification and shouldnt create a new table element
+                    // For this object
+                    context.Entry(ol.Item).State = System.Data.Entity.EntityState.Modified;
+                }
                 context.Orders.Add(dataOrder);
                 context.SaveChanges();
             }
