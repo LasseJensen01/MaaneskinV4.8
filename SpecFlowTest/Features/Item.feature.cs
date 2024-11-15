@@ -36,7 +36,8 @@ namespace SpecFlowTest.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Item Creation", "  As a developer\r\n  I want to create items with specific properties\r\n  So that I " +
-                    "can verify their creation in my application", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "can verify their creation in my application\r\n\r\n  Make the StepDefinition first a" +
+                    "s the text will be intellisensed in after each keyword", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -76,14 +77,14 @@ namespace SpecFlowTest.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create an Item with valid parameters")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("ItemTest")]
         public virtual void CreateAnItemWithValidParameters()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "ItemTest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create an Item with valid parameters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+#line 8
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -103,14 +104,15 @@ namespace SpecFlowTest.Features
             else
             {
                 this.ScenarioStart();
-#line 7
-        testRunner.Given("parameters ID 1, Name \"Tuborg\", Price 10.0, and ImgURL \"Img.url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+        testRunner.Given("parameters ID 1, Name \"Tuborg\", Price 10.0, Quantity 10, and ImgURL \"Img.url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 8
+#line 10
         testRunner.When("I create Item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 9
-        testRunner.Then("the item should have ID 1, Name \"Tuborg\", Price 10.0, and ImgURL \"Img.url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+        testRunner.Then("the item should have ID 1, Name \"Tuborg\", Price 10.0, Quantity 10, and ImgURL \"Im" +
+                        "g.url\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
