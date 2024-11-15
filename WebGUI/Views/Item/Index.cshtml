@@ -17,6 +17,11 @@
         <div class="itemarea">
          <h2>INVENTORY</h2>
             <table>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th style="text-align: right; padding: 10px">Quantity</th>
+                </tr>
                 @{
                     foreach (Item it in Model)
                     {
@@ -24,8 +29,11 @@
                         <td style="width:55px">
                             <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="50" height="50" />
                         </td>
-                        <td style="font-weight:700">
+                        <td style="font-weight:700; width:30%; text-align:left">
                             @it.Name
+                        </td>
+                        <td style="font-weight: 700; width: auto; text-align:right; padding: 10px">
+                            @it.Quantity
                         </td>
                     </tr>
                 }
@@ -44,10 +52,9 @@
                 type: 'GET',
                 success: function (result) {
                     $('#EditDiv').html(result);
-                    $('tr').css("border", "2px solid grey");
+                    $('tr').css("background-color", "#FFFFFF"); //white
                     let rowID = id;
-                    $(`#${rowID}`).css("border", "2px solid red");
-                    
+                    $(`#${rowID}`).css("background-color", "#C0C0C0"); //light grey
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
@@ -83,10 +90,9 @@
             overflow: hidden;
         }
 
-        table, tr{
+        table, tr {
             border: 2px solid grey;
             border-spacing: 50px
-
         }
     </style>
 </body>
