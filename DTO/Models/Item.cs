@@ -10,10 +10,10 @@ namespace DTO.Models
     {
         [ScaffoldColumn(false)]
         public int ID { get; set; }
-        public int Quantity { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string ImgURL { get; set; }
+        public int Quantity { get; set; }
         public Item(int id, string name, double price, string imgURL, int quantity)
         {
             ID = id;
