@@ -15,7 +15,9 @@
 <body>
     <div class="inventorypage">
         <div class="itemarea">
+         <span> </span>
          <h2>INVENTORY</h2>
+            <button onclick="updateEditDiv(-1, 'AddItem/')" style="margin: 0 0 10px 0">Add item</button>
             <table>
                 <tr>
                     <th>Image</th>
@@ -25,7 +27,7 @@
                 @{
                     foreach (Item it in Model)
                     {
-                    <tr id="@it.ID"  onclick="updateEditDiv(@it.ID)">
+                    <tr id="@it.ID"  onclick="updateEditDiv(@it.ID, 'UpdateItem/')">
                         <td style="width:55px">
                             <img src="~/Content/Images/@it.ImgURL" alt="Image Not Found" width="50" height="50" />
                         </td>
@@ -46,15 +48,15 @@
     </div>
 
     <script>
-        function updateEditDiv(id) {
+        function updateEditDiv(id, action) {
             $.ajax({
-                url: '/Item/UpdateItem/' + id,
+                url: '/Item/' + action + id,
                 type: 'GET',
                 success: function (result) {
                     $('#EditDiv').html(result);
                     $('tr').css("background-color", "#FFFFFF"); //white
                     let rowID = id;
-                    $(`#${rowID}`).css("background-color", "#C0C0C0"); //light grey
+                    if (rowID < 0) $(`#${rowID}`).css("background-color", "#C0C0C0"); //light grey
                 },
                 error: function (xhr, status, error) {
                     console.log(error);

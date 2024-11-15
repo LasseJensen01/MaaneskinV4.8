@@ -19,6 +19,7 @@ namespace WebGUI.Controllers
         public ActionResult UpdateItem(int id)
         {
             var item = new BLL.BLL.ItemBLL().GetItem(id);
+            ViewBag.action = "UpdateItem";
             return PartialView("_UpdateItem", item);
         }
         [HttpPost]
@@ -31,10 +32,15 @@ namespace WebGUI.Controllers
         [HttpPost]
         public ActionResult AddItem(Item item)
         {
-            string view = "Index";
             var bll = new BLL.BLL.ItemBLL();
             bll.AddItem(item);
-            return RedirectToAction("Item", view);
+            return RedirectToAction("Index");
+        }
+        public ActionResult AddItem(int id)
+        {
+            var item = new Item();
+            ViewBag.action = "AddItem";
+            return PartialView("_UpdateItem", item);
         }
     }
 }

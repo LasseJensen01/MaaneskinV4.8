@@ -40,8 +40,9 @@
 
     </div>
 
-    <div class="icons">
-        @foreach (var item in Model) {
+    <div class="icons" style="overflow-y: scroll">
+        @foreach (var item in Model)
+        {
             @Html.DisplayFor(Model => item, "ItemDisplay")
         }
     </div>
