@@ -76,9 +76,11 @@ namespace SpecFlowTest.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Item with valid parameters")]
+        [NUnit.Framework.CategoryAttribute("ItemTest")]
         public virtual void CreateItemWithValidParameters()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "ItemTest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Item with valid parameters", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
