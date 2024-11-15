@@ -27,7 +27,8 @@ namespace DAL.Repositories {
 
                 foreach (Models.OrderLine ol in dataOrder.OrderLines) {
                     ol.Item.Quantity = ol.Item.Quantity - ol.Quantity;
-                    ItemRepositorie.UpdateItem(Mapper.ItemMapper.Map(ol.Item));
+                    ItemRepositorie.UpdateItem(Mapper.ItemMapper.Map(ol.Item)); //Technically Redundant
+                    // Accidentally made this entire class able save Order, Orderline and Item in DB
                     // Tells the DbContext the item changes are a modification and shouldnt create a new table element
                     // For this object
                     context.Entry(ol.Item).State = System.Data.Entity.EntityState.Modified;
