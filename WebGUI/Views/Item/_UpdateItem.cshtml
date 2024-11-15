@@ -13,7 +13,7 @@
     {
         @Html.EditorForModel()
         <br />
-        <button name="" type="submit">OK</button>
+        <button Id="btn" name="" type="submit">OK</button>
     }
 
 </div>
@@ -29,3 +29,11 @@
         width: 50%;
     }
 </style>
+<script>
+    function editAlert() {
+
+        alert("Edit successfull");
+    }
+
+    document.getElementById("btn").addEventListener("click", editAlert)
+</script>
