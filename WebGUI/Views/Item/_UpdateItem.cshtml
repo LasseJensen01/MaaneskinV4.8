@@ -31,9 +31,18 @@
 </style>
 <script>
     function editAlert() {
-
         alert("Edit successfull");
     }
 
     document.getElementById("btn").addEventListener("click", editAlert)
+
+    $(document).ready(function () {
+        $("#Quantity").change(function () {
+            var quantity = parseInt($(this).val());
+            if (isNaN(quantity) || quantity < 0) {
+                alert("Quantity must be a positive number");
+                $(this).val(@Model.Quantity);
+            }
+        });
+    });
 </script>
