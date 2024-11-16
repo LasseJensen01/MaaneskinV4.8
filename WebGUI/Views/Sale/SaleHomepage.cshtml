@@ -5,7 +5,7 @@
 
 @model List<DTO.Models.Item>
 
-<h2>Register Sales</h2>
+
 <div class="salepage">
     <div class="order-lines">
         <h3>Order</h3>
@@ -41,7 +41,8 @@
     </div>
 
     <div class="icons" style="overflow-y: scroll">
-        <table id="itemTable">
+        <h2 style="text-align:left">Register Sale</h2>
+        <table id="itemTable" style="border-style: dotted">
             @for (int i = 0; i < Model.Count; i += 4) {
                 <tr>
                     @for (int j = i; j < i + 4; j++) {
