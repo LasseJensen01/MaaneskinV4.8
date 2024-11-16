@@ -16,8 +16,15 @@ namespace DTO.Models
         public double Price { get; set; }
         public string ImgURL { get; set; }
         public int Quantity { get; set; }
-        public Item(int id, string name, double price, string imgURL, int quantity)
+        public Item(string name, double price, string imgURL, int quantity)
         {
+            ID = IDIncrementClass.GenerateID();
+            Name = name;
+            Price = price;
+            ImgURL = imgURL;
+            Quantity = quantity;
+        }
+        public Item(int id, string name, double price, string imgURL, int quantity) {
             ID = id;
             Name = name;
             Price = price;
