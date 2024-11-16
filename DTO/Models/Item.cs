@@ -24,6 +24,7 @@ namespace DTO.Models
             ImgURL = imgURL;
             Quantity = quantity;
         }
+        // Made for Mappers
         public Item(int id, string name, double price, string imgURL, int quantity) {
             ID = id;
             Name = name;

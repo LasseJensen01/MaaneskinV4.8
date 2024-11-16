@@ -26,6 +26,7 @@ namespace DAL.Models
             IsDeleted = false;
         }
 
+        // Made for Mappers
         public Item(int id, string name, double price, string imgURL, int quantity) {
             ID = id;
             Name = name;
@@ -33,7 +34,9 @@ namespace DAL.Models
             ImgURL = imgURL;
             Quantity = quantity;
 
+            // IsDeleted = false ? Price > 0 : IsDeleted = true; // Marks an item as deleted if listed price is 0
             IsDeleted = false;
+            
         }
         public Item() { }
     }
