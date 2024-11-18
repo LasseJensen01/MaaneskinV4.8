@@ -42,12 +42,13 @@
 
     <div class="icons" style="overflow-y: scroll">
         <h2 style="text-align:left">Register Sale</h2>
-        <table id="itemTable" style="border-style: dotted">
+        <table id="itemTable">
             @for (int i = 0; i < Model.Count; i += 4) {
                 <tr>
                     @for (int j = i; j < i + 4; j++) {
                         if (j < Model.Count) {
                             <td>
+                                <!-- Når IsDeletede fungere tjek om her om Model.IsDeltede før man sætter elementet ind.-->
                                 @Html.DisplayFor(Model => Model[j], "ItemDisplay")
                             </td>
                         }
