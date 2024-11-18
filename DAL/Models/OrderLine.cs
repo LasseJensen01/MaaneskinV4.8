@@ -17,6 +17,7 @@ namespace DAL.Models
         //Foreign Key
         [ForeignKey("Item")]
         public int ItemID { get; set; }
+        public double TotalPrice {  get; set; }
        
 
         public OrderLine() {
@@ -28,9 +29,11 @@ namespace DAL.Models
             ID = id;
             Quantity = quantity;
             Item = item;
+            TotalPrice = GetTotal();
         }
-        public double GetTotal()
+        private double GetTotal()
         {
+
             return Quantity * Item.Price;
         }
         public override string ToString()
