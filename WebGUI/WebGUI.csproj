@@ -163,6 +163,7 @@
     <Content Include="Content\Images\Harold.jpg" />
     <Content Include="Content\Images\Indkøbsvogn.jpg" />
     <Content Include="Content\Images\Kvittering.jpg" />
+    <Content Include="Content\Images\PlaceholderBottle.jpg" />
     <Content Include="Content\Sale.css" />
     <Content Include="Content\Images\Sport.jpg" />
     <Content Include="favicon.ico" />
