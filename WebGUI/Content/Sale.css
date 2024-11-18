@@ -7,7 +7,6 @@
     height: 70vh;
     position: fixed;
     width: 90%;
-
 }
 
 .order-lines {
@@ -15,13 +14,13 @@
     border: 2px solid black;
     text-align:left;
     padding: 10px;
-    overflow:hidden;
+    max-height: 100%;
+    overflow-x:hidden;
+    overflow-y:scroll;
 }
 
 .icons {
     grid-area: icons;
-    border: 2px red;
-    text-align: center;
     padding: 10px;
     overflow-y: scroll;
 }
@@ -31,3 +30,5 @@
     table-layout: fixed;
     border-collapse: collapse;
 }
+
+

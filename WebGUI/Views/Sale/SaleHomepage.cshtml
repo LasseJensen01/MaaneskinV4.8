@@ -40,12 +40,12 @@
 
     </div>
 
-    <div class="icons" style="overflow-y: scroll">
+    <div class="icons">
         <h2 style="text-align:left">Register Sale</h2>
         <table id="itemTable" style="border-style: dotted">
-            @for (int i = 0; i < Model.Count; i += 4) {
-                <tr>
-                    @for (int j = i; j < i + 4; j++) {
+            @for (int i = 0; i < Model.Count; i += 5) {
+                <tr class="icon-row">
+                    @for (int j = i; j < i + 5; j++) {
                         if (j < Model.Count) {
                             <td>
                                 @Html.DisplayFor(Model => Model[j], "ItemDisplay")
