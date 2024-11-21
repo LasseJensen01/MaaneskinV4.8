@@ -10,12 +10,14 @@ namespace DTO.Models
         public int ID { get; set; }
         public int Quantity { get; set; }
         public Item Item { get; set; }
+        public double TotalPrice { get; set; }
 
-        public OrderLine(int id, int quantity, Item item)
-        {
+
+        public OrderLine(int id, int quantity, Item item) {
             ID = id;
             Quantity = quantity;
             Item = item;
+            TotalPrice = GetTotal();
         }
         public double GetTotal()
         {
