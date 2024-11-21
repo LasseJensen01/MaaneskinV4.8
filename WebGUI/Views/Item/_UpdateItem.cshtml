@@ -50,5 +50,21 @@
                 $(this).val(@Model.Quantity);
             }
         });
+
+        $("#Price").change(function () {
+            var price = parseFloat($(this).val());
+            if (isNaN(price) || price <= 0) {
+                alert("Price must be a positive number");
+                $(this).val(@Model.Price);
+            }
+        });
+
+        $("#Name").change(function () {
+            var name = $(this).val();
+            if (name.length < 1) {
+                alert("Name must consist of one or more symbols");
+                $(this).val("@Model.Name");
+            }
+        });
     });
 </script>

@@ -7,12 +7,14 @@ namespace DAL.Models
 {
     public class Order {
         public int ID { get; set; }
+        public DateTime Date { get; set; }
         public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>(); // This is cursed
         public Order() {
 
         }
         public Order(int id) {
             ID = id;
+            Date = DateTime.Now;
         }
 
         public void AddOrderLine(OrderLine orderLine) {

@@ -63,6 +63,7 @@
     <Compile Include="Repositories\ItemRepositorie.cs" />
     <Compile Include="Repositories\OrderLinjeRepositorie.cs" />
     <Compile Include="Repositories\OrderRepositorie.cs" />
+    <Compile Include="Repositories\RepositoryService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
