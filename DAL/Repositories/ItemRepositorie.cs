@@ -8,14 +8,18 @@ namespace DAL.Repositories {
     public class ItemRepositorie {
         public static DTO.Models.Item GetItem(int id) {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
-                Models.Item item = context.Items.Find(id);
-                return Mapper.ItemMapper.Map(item);
+                Models.Item itemDAL = context.Items.Find(id);
+                var itemDTO = Mapper.ItemMapper.Map(itemDAL);
+                itemDTO.CheckAndSetPlaceholder();
+                return itemDTO;
             }    
         }
         public static List<DTO.Models.Item> GetAllItems() {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
-                List<DAL.Models.Item> items = context.Items.ToList();
-                return Mapper.ItemMapper.Map(items);
+                List<DAL.Models.Item> itemsDAL = context.Items.ToList();
+                var itemsDTO = Mapper.ItemMapper.Map(itemsDAL);
+                itemsDTO.CheckAndSetPlaceholder();
+                return itemsDTO;
             }
         }
         public static void AddItem(DTO.Models.Item item) {
