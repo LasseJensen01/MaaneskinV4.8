@@ -9,17 +9,14 @@ namespace DAL.Mapper {
     public class OrderMapper {
         public static DTO.Models.Order Map(Order order) {
             DTO.Models.Order retur = new DTO.Models.Order(order.ID);
-            retur.Date = order.Date;
             foreach(OrderLine orderline in order.OrderLines) {
                 retur.AddOrderLine(OrderLineMapper.Map(orderline));
             }
-            
             return retur;
         }
 
         public static Order Map(DTO.Models.Order order) {
             Order retur = new Order(order.ID);
-            order.Date = retur.Date;
             foreach(DTO.Models.OrderLine orderline in order.OrderLines) {
                 retur.AddOrderLine(OrderLineMapper.Map(orderline));
             }
