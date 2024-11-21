@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO.Models;
+using NUnit.Framework;
 
 namespace SpecFlowTest.StepDefinitions {
     public class OrderStepDefinition {
@@ -24,6 +25,11 @@ namespace SpecFlowTest.StepDefinitions {
             _order = new Order(_id);
             _order.Date = _date;
             _order.OrderLines = _orderlines;
+        }
+
+        [Then((@"I have parameters as ID (.*), Date (.*) Orderlines (.*)"))]
+        public void ThenIhaveAnOrder(int expectedID, DateTime expectedDate, List<OrderLine> expectedOrderlines) {
+            Assert.AreEqual();
         }
     }
 }
