@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,29 +8,49 @@ using DTO.Models;
 using NUnit.Framework;
 
 namespace SpecFlowTest.StepDefinitions {
+
+    [Binding]
     public class OrderStepDefinition {
         private Order _order;
         private int _id;
-        private DateTime _date;
-        private List<OrderLine> _orderlines = new List<OrderLine>();
+        private string _date;
+        private DateTime _datetime;
+        private List<OrderLine> _emptyOrderlines = new List<OrderLine>();
+        private List<OrderLine> _filledOrderLines = new List<OrderLine> {
+            new OrderLine(1,1,new Item()),
+            new OrderLine(2,2,new Item()),
+            new OrderLine(3,3,new Item())
 
-        [Given (@"Parameters, ID (.*), Date (.*), Orderlines (.*)")]
-        public void GivenCorrectParameters(int id, DateTime date, List<OrderLine> orderLines) {
+        };
+        private List<Order> _orderList = new List<Order>();
+
+        [Given (@"Parameters, ID (.*), Date (.*)")]
+        public void GivenCorrectParameters(int id, string date) {
             _id = id;
             _date = date;
-            _orderlines = orderLines;
+            _datetime = DateTime.Parse(_date);
         }
 
-        [When (@"I create order")]
+        [Given(@"following orders exist:")]
+        public void GivenFollowingOrdersExist(Table table) {
+            foreach (var row in table.Rows) {
+                Order o = new Order(Int32.Parse(row["ID"]));
+                o.Date = DateTime.Parse(row["Date"]);
+                _orderList.Add(o);
+            }
+        }
+
+        [When (@"I create Order")]
         public void WhenICreateOrder() {
             _order = new Order(_id);
-            _order.Date = _date;
-            _order.OrderLines = _orderlines;
+            _order.Date = _datetime;
+            _order.OrderLines = _filledOrderLines;
         }
 
-        [Then((@"I have parameters as ID (.*), Date (.*) Orderlines (.*)"))]
-        public void ThenIhaveAnOrder(int expectedID, DateTime expectedDate, List<OrderLine> expectedOrderlines) {
-            Assert.AreEqual();
+        [Then((@"I have parameters as ID (.*), Date (.*)"))]
+        public void ThenIhaveAnOrder(int expectedID, string expectedDate) {
+            Assert.AreEqual(expectedID, _order.ID);
+            Assert.AreEqual(DateTime.Parse(expectedDate), _order.Date);
         }
     }
 }
