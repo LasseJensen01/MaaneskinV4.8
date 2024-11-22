@@ -20,9 +20,7 @@ namespace DAL.Models
         public double TotalPrice {  get; set; }
        
 
-        public OrderLine() {
-
-        }
+        public OrderLine() { }
 
         public OrderLine(int id, int quantity, Item item)
         {
@@ -33,7 +31,6 @@ namespace DAL.Models
         }
         private double GetTotal()
         {
-
             return Quantity * Item.Price;
         }
         public override string ToString()
