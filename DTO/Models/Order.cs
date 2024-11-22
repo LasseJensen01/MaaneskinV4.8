@@ -26,12 +26,22 @@ namespace DTO.Models
         public bool RemoveOrderline(OrderLine orderLine) {
             return this.OrderLines.Remove(orderLine);
         }
-        public double GetTotal()
+        public double GetTotalOrderPrice()
         {
             double total = 0;
             foreach (OrderLine orderLine in OrderLines)
             {
                 total += orderLine.TotalPrice;
+            }
+            return total;
+        }
+
+        public double GetTotalSalePrice()
+        {
+            double total = 0;
+            foreach (OrderLine orderLine in OrderLines)
+            {
+                total += orderLine.GetTotal();
             }
             return total;
         }
@@ -42,7 +52,7 @@ namespace DTO.Models
             {
                 orderString += orderLine.ToString() + "\n";
             }
-            orderString += $"Total: {GetTotal()} kr.";
+            orderString += $"Total: {GetTotalSalePrice()} kr.";
             return orderString;
         }
     }

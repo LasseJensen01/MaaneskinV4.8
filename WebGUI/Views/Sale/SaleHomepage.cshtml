@@ -31,7 +31,7 @@
         <hr />
 
         @if (ViewBag.order != null) {
-            <p style="text-align:right; font-weight:700">Total: @ViewBag.order.GetTotal kr.</p>
+            <p style="text-align:right; font-weight:700">Total: @ViewBag.order.GetTotalSalePrice() kr.</p>
         }
 
         <button style="position:absolute; bottom:20px" onclick="location.href='@Url.Action("ResetOrder", "Sale")'">Reset</button>
