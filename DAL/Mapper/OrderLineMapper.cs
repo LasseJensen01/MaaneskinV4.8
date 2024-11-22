@@ -10,7 +10,9 @@ namespace DAL.Mapper {
         // We are gonne reach mapping lengths which shouldnt even be possible... This is what scaling is all about
         public static DTO.Models.OrderLine Map(Models.OrderLine orderLine) {
             if (orderLine != null) {
-                return new DTO.Models.OrderLine(orderLine.ID, orderLine.Quantity, ItemMapper.Map(orderLine.Item));
+                DTO.Models.OrderLine ol = new DTO.Models.OrderLine(orderLine.ID, orderLine.Quantity, ItemMapper.Map(orderLine.Item));
+                ol.TotalPrice = orderLine.TotalPrice;
+                return ol;
             }
             else { return null; }
         }

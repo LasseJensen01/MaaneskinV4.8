@@ -29,13 +29,13 @@ namespace DAL.Models
             Item = item;
             TotalPrice = GetTotal();
         }
-        private double GetTotal()
+        public double GetTotal()
         {
             return Quantity * Item.Price;
         }
         public override string ToString()
         {
-            return $"{Quantity} x {Item.Name} à {Item.Price} kr.";
+            return $"{Quantity} x {Item.Name} à {TotalPrice/Quantity} kr.";
         }
     }
 }

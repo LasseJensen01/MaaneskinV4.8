@@ -25,7 +25,7 @@ namespace DTO.Models
         }
         public override string ToString()
         {
-            return $"{Quantity} x {Item.Name} à {Item.Price} kr.";
+            return $"{Quantity} x {Item.Name} à {TotalPrice/Quantity} kr.";
         }
     }
 }

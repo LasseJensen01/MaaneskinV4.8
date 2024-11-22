@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "All Orders";
+}
+
+@model List<DTO.Models.Order>
+
+<h2>All Orders</h2>
+
+<div class="order-view">
+    <table>
+        <tr>
+            @foreach (System.Reflection.PropertyInfo att in ViewBag.Order.GetType().GetProperties())
+            {
+                <th>
+                    @att.Name.ToString()
+                </th>
+            }
+            <th>Total Price</th>
+        </tr>
+        @foreach (DTO.Models.Order o in Model)
+        {
+            <tr>
+                @foreach (System.Reflection.PropertyInfo p in o.GetType().GetProperties())
+                {
+                    if (!p.Name.Equals("OrderLines"))
+                    {
+                        <td>
+                            @p.GetValue(o)
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <table class="order-line-table">
+                                @foreach(DTO.Models.OrderLine ol in o.OrderLines)
+                        {
+                            <tr>
+                                <td>@ol.ToString()</td>
+                            </tr>
+                        }
+                            </table>
+                            
+                        </td>
+                    }
+                }
+                <td>@o.GetTotalOrderPrice()</td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<style>
+    .order-view {
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+        width: 100%;
+        height: 68vh;
+        overflow-y: scroll;
+    }
+
+    .order-view table {
+        border-collapse:collapse;
+        width:100%
+    }
+
+    .order-view th,td {
+        border: 2px solid black;
+        padding: 5px 10px 5px 10px
+    }
+
+    .order-line-table td {
+        border: none;
+    }
+
+    .order-line-table tr:not(:first-child) td{
+        border-top: 1px solid grey;
+    }
+</style>
