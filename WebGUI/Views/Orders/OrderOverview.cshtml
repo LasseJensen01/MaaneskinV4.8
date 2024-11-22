@@ -10,12 +10,13 @@
 <div class="order-view">
     <table>
         <tr>
-            @foreach (System.Reflection.PropertyInfo att in Model.First().GetType().GetProperties())
+            @foreach (System.Reflection.PropertyInfo att in ViewBag.Order.GetType().GetProperties())
             {
                 <th>
                     @att.Name.ToString()
                 </th>
             }
+            <th>Total Price</th>
         </tr>
         @foreach (DTO.Models.Order o in Model)
         {
@@ -43,6 +44,7 @@
                         </td>
                     }
                 }
+                <td>@o.GetTotal()</td>
             </tr>
         }
 

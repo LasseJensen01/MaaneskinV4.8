@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.BLL;
+using DTO.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,7 @@ namespace WebGUI.Controllers
         // GET: Orders
         public ActionResult OrderOverview()
         {
+            /*
             List<DTO.Models.Order> orders = new List<DTO.Models.Order>();
 
             DTO.Models.Item cola = new DTO.Models.Item(1, "Cola", 10, "Harold.jpg", 10);
@@ -18,7 +21,7 @@ namespace WebGUI.Controllers
 
             for (int i = 0; i < 5; i++)
             {
-                DTO.Models.Order order = new DTO.Models.Order();
+                DTO.Models.Order order = new DTO.Models.Order(i);
 
                 DTO.Models.OrderLine ol;
 
@@ -37,6 +40,14 @@ namespace WebGUI.Controllers
                 order.AddOrderLine(ol);
                 orders.Add(order);
             }
+            */
+
+            Order headerOrder = new Order();
+            ViewBag.Order = headerOrder;
+
+            OrderBLL bll = new OrderBLL();
+            List<DTO.Models.Order> orders = bll.GetAllOrders();
+            
             
             return View("OrderOverview", orders);
         }
