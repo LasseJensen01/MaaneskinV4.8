@@ -31,7 +31,7 @@ namespace DTO.Models
             double total = 0;
             foreach (OrderLine orderLine in OrderLines)
             {
-                total += orderLine.GetTotal();
+                total += orderLine.TotalPrice;
             }
             return total;
         }
