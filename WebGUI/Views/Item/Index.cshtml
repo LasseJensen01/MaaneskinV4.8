@@ -61,7 +61,7 @@
                     $('#EditDiv').html(result);
                     $('tr').css("background-color", "#FFFFFF"); //white
                     let rowID = id;
-                    if (rowID < 0) $(`#${rowID}`).css("background-color", "#C0C0C0"); //light grey
+                    if (rowID > 0) $(`#${rowID}`).css("background-color", "#DFFFDF"); //light grey
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
