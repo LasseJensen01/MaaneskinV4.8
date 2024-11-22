@@ -74,14 +74,14 @@ namespace SpecFlowTest.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC10.1 Order can be created, saved and then called from DB")]
+        [NUnit.Framework.DescriptionAttribute("TC10.1 Order can be created given data")]
         [NUnit.Framework.CategoryAttribute("OrderTest")]
-        public virtual void TC10_1OrderCanBeCreatedSavedAndThenCalledFromDB()
+        public virtual void TC10_1OrderCanBeCreatedGivenData()
         {
             string[] tagsOfScenario = new string[] {
                     "OrderTest"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.1 Order can be created, saved and then called from DB", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.1 Order can be created given data", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -116,12 +116,12 @@ namespace SpecFlowTest.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC10.2 Order has the correct orderlines")]
-        public virtual void TC10_2OrderHasTheCorrectOrderlines()
+        [NUnit.Framework.DescriptionAttribute("TC10.2 An Orders correctly calculates its total price")]
+        public virtual void TC10_2AnOrdersCorrectlyCalculatesItsTotalPrice()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.2 Order has the correct orderlines", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.2 An Orders correctly calculates its total price", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 11
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -142,18 +142,36 @@ namespace SpecFlowTest.Features
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "ID",
+                            "Date"});
+                table1.AddRow(new string[] {
+                            "1",
+                            "2001-9-11 8:47:00.000"});
+                table1.AddRow(new string[] {
+                            "2",
+                            "2001-9-12 8:48:00.000"});
+                table1.AddRow(new string[] {
+                            "3",
+                            "2001-9-13 8:49:00.000"});
+#line 12
+ testRunner.Given("following orders exist:", ((string)(null)), table1, "Given ");
+#line hidden
+#line 17
+ testRunner.Then("I have a order with value of 62", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("TC10.3 Order has valid properties")]
-        public virtual void TC10_3OrderHasValidProperties()
+        [NUnit.Framework.DescriptionAttribute("TC10.3 Order maintains price regardless if item changes value")]
+        public virtual void TC10_3OrderMaintainsPriceRegardlessIfItemChangesValue()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.3 Order has valid properties", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 14
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.3 Order maintains price regardless if item changes value", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 20
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -173,6 +191,15 @@ namespace SpecFlowTest.Features
             else
             {
                 this.ScenarioStart();
+#line 21
+ testRunner.Given("Parameters, ID 1, Date 2001-9-11 8:46:00.000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 22
+ testRunner.When("I create Order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 23
+ testRunner.Then("When price changes of item value still is 62", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

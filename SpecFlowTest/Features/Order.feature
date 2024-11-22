@@ -14,6 +14,10 @@ Feature: Se en oversigt over over gemte ordre linjer i databasen
 	| 1  | 2001-9-11 8:47:00.000 |
 	| 2  | 2001-9-12 8:48:00.000 |
 	| 3  | 2001-9-13 8:49:00.000 |
+	Then I have a order with value of 62
 
 
-	Scenario: TC10.3 Order has valid properties
+	Scenario: TC10.3 Order maintains price regardless if item changes value
+	Given Parameters, ID 1, Date 2001-9-11 8:46:00.000
+	When I create Order
+	Then When price changes of item value still is 62
