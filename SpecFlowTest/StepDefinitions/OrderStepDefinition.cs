@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.BLL;
 using DTO.Models;
 using NUnit.Framework;
 
@@ -11,13 +12,14 @@ namespace SpecFlowTest.StepDefinitions {
 
     [Binding]
     public class OrderStepDefinition {
+        private static ItemBLL itembll { get; set; } = new ItemBLL();
         private Order _order;
         private int _id;
         private string _date;
         private DateTime _datetime;
         private List<OrderLine> _emptyOrderlines = new List<OrderLine>();
         private List<OrderLine> _filledOrderLines = new List<OrderLine> {
-            new OrderLine(1,1,new Item()),
+            new OrderLine(1,1,itembll.GetItem(1)),
             new OrderLine(2,2,new Item()),
             new OrderLine(3,3,new Item())
 
