@@ -56,6 +56,11 @@
             if (isNaN(price) || price <= 0) {
                 alert("Price must be a positive number");
                 $(this).val(@Model.Price);
+            } else {
+                alert(price)
+                price = price.toString().replace(".", ",")
+                alert(price)
+                $(this).val(price) //I hate this
             }
         });
 
