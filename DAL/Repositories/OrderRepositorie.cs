@@ -17,16 +17,15 @@ namespace DAL.Repositories {
         public static List<DTO.Models.Order> GetAllOrders() {
             using (Context.MaaneskinContext context = new Context.MaaneskinContext()) {
                 List<DAL.Models.Order> orders = context.Orders.ToList();
+                List<DTO.Models.Order> DTOorders = Mapper.OrderMapper.Map(orders);
                 //hiv orderlines med
-                List<DAL.Models.OrderLine> orderLines = context.OrderLines.ToList();
-                foreach (DAL.Models.OrderLine line in orderLines)
+                foreach (DTO.Models.Order order in DTOorders)
                 {
-                    DTO.Models.OrderLine currentOl = Mapper.OrderLineMapper.Map(line);
-                    orders.Find(o => o.ID == currentOl.ID);
+                    List<DTO.Models.OrderLine> orderLines = OrderLinjeRepositorie.GetAllOrderLinjes(order.ID);
+                    order.OrderLines = orderLines;
                 }
-                //for hver ordrelinje
-                    //find ordre i orders der matcher på id og tilføj
-                return Mapper.OrderMapper.Map(orders);
+                
+                return DTOorders;
             }
         }
         public static void AddOrder(DTO.Models.Order order) {
