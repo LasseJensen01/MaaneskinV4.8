@@ -1,28 +1,16 @@
-﻿@using DTO.Models
-@model Item
+﻿@{
+    string action = ViewBag.action;
+    string header = (action == "UpdateItem") ? "EDIT" : "ADD";
+}
 
-@*
-    This partial view is used to update or create an item in the inventory.
-    The action parameter is used to determine approriatly render the view for updating or adding an item.
-    The action parameter is allso used to determine the form action.
-*@
 
-<div class="formDiv">
-    @{
-        string action = ViewBag.action;
-        string header = (action == "UpdateItem") ? "EDIT" : "ADD";
-
-     }
-
-    <h2>@header</h2>
-    @using (Html.BeginForm(action, "Item"))
-    {
-        @Html.EditorForModel()
-        <br />
-        <button Id="btn" name="" type="submit">OK</button>
-    }
-
-</div>
+<h2>@header</h2>
+@using (Html.BeginForm(action, "Item"))
+{
+    @Html.EditorForModel()
+    <br />
+    <button Id="btn" name="" type="submit">OK</button>
+}
 
 <style>
     .imgDiv {
@@ -42,6 +30,7 @@
 
     document.getElementById("btn").addEventListener("click", editAlert)
 
+    //Input validation for the Html@EditorForModel
     $(document).ready(function () {
         $("#Quantity").change(function () {
             var quantity = parseInt($(this).val());
@@ -52,10 +41,25 @@
         });
 
         $("#Price").change(function () {
-            var price = parseFloat($(this).val());
+            var priceString = $(this).val();
+            priceString = priceString.toString().replace(",", ".");
+            var price = parseFloat(priceString);
             if (isNaN(price) || price <= 0) {
                 alert("Price must be a positive number");
                 $(this).val(@Model.Price);
+            } else {
+                priceString = price.toFixed(2);
+                alert(priceString)
+                $(this).val(priceString)
+            }
+        });
+
+        $("#Price").on('input', function () {
+            var value = $(this).val();
+            var regex = /^[0-9,]*$/;
+            if (!regex.test(value)) {
+                alert("Only numbers and commas are allowed");
+                $(this).val(value.replace(/[^0-9,]/g, ''));
             }
         });
 
