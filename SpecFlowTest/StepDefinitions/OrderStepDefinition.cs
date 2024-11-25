@@ -59,13 +59,13 @@ namespace SpecFlowTest.StepDefinitions {
         [Then(@"I have a order with value of (.*)")]
         public void ThenIHaveOrderWithValueOf(double expectedPrice) {
             foreach(var o in _orderList) {
-                Assert.AreEqual(expectedPrice, o.GetTotal());
+                Assert.AreEqual(expectedPrice, o.GetTotalOrderPrice());
             }
         }
         [Then(@"When price changes of item value still is (.*)")]
         public void ThenWhenItemPriceChangesValueIsStill(double expectedPrice) {
             _pilsner.Price = 100;
-            Assert.AreEqual(expectedPrice, _order.GetTotal());
+            Assert.AreEqual(expectedPrice, _order.GetTotalOrderPrice());
         }
     }
 }
