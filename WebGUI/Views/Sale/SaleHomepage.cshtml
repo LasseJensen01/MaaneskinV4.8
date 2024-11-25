@@ -48,7 +48,6 @@
                     @for (int j = i; j < i + 5; j++) {
                         if (j < Model.Count) {
                             <td>
-                                <!-- Når IsDeletede fungere tjek om her om Model.IsDeltede før man sætter elementet ind.-->
                                 @Html.DisplayFor(Model => Model[j], "ItemDisplay")
                             </td>
                         }

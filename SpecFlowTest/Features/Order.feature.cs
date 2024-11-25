@@ -122,7 +122,7 @@ namespace SpecFlowTest.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.2 An Orders correctly calculates its total price", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
+#line 10
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -142,10 +142,10 @@ namespace SpecFlowTest.Features
             else
             {
                 this.ScenarioStart();
-#line 12
+#line 11
  testRunner.Given("Parameters, ID 1, Date 2001-9-11 8:46:00.000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 13
+#line 12
  testRunner.Then("I have a order with value of 62", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -159,7 +159,7 @@ namespace SpecFlowTest.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC10.3 Order maintains price regardless if item changes value", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+#line 15
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -179,13 +179,13 @@ namespace SpecFlowTest.Features
             else
             {
                 this.ScenarioStart();
-#line 17
+#line 16
  testRunner.Given("Parameters, ID 1, Date 2001-9-11 8:46:00.000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 18
+#line 17
  testRunner.When("I create Order", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 18
  testRunner.Then("When price changes of item value still is 62", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

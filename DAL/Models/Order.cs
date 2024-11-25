@@ -8,7 +8,7 @@ namespace DAL.Models
     public class Order {
         public int ID { get; set; }
         public DateTime Date { get; set; }
-        public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>(); // This is cursed
+        public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
         public Order() {
 
         }
@@ -19,35 +19,6 @@ namespace DAL.Models
 
         public void AddOrderLine(OrderLine orderLine) {
             this.OrderLines.Add(orderLine);
-        }
-        public bool RemoveOrderline(OrderLine orderLine) {
-            return this.OrderLines.Remove(orderLine);
-        }
-        public double GetTotalOrderPrice() {
-            double total = 0;
-            foreach (OrderLine orderLine in OrderLines) {
-                total += orderLine.TotalPrice;
-            }
-            return total;
-        }
-
-        public double GetTotalSalePrice()
-        {
-            double total = 0;
-            foreach (OrderLine orderLine in OrderLines)
-            {
-                total += orderLine.GetTotal();
-            }
-            return total;
-        }
-
-        public override string ToString() {
-            string orderString = "";
-            foreach (OrderLine orderLine in OrderLines) {
-                orderString += orderLine.ToString() + "\n";
-            }
-            orderString += $"Total: {GetTotalSalePrice()} kr.";
-            return orderString;
         }
     }
 }

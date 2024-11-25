@@ -19,22 +19,5 @@ namespace BLL.BLL {
         public void UpdateItem(DTO.Models.Item item) {
             DAL.Repositories.ItemRepositorie.UpdateItem(item);
         }
-        public void DeleteItem(int id) {
-            DAL.Repositories.ItemRepositorie.DeleteItem(id);
-        }
-
-        /// <summary>
-        /// Instantiation of interface type left
-        /// to developer.
-        /// </summary>
-        /// <returns>
-        /// An IEnumerable of all items
-        /// not ignoring out of stock items.
-        /// </returns>
-        public static List<DTO.Models.Item> GetItems()
-        {
-            return DAL.Repositories.ItemRepositorie.GetAllItems();
-        }
-
     }
 }

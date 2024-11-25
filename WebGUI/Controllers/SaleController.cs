@@ -18,10 +18,6 @@ namespace WebGUI.Controllers
         // GET: Sale
         public ActionResult SaleHomepage()
         {
-            //fetch items and populate page
-            //var itemModels = BLL.BLL.ItemBLL.GetItems();
-            //ViewBag.items = itemModels;
-
             return View("SaleHomepage", getItems());
         }
 
@@ -39,8 +35,6 @@ namespace WebGUI.Controllers
             }
             
             var item = getItems().Find(x => x.ID == itemId);
-
-            //find ud af, om der allerede er en ordrelinje med varen
             var foundOrderline = order.OrderLines.Find(x => x.Item.ID == item.ID);
 
             if (foundOrderline != null)

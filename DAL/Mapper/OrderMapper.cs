@@ -28,10 +28,6 @@ namespace DAL.Mapper {
 
         }
 
-        public static void Update(DTO.Models.Order order, DAL.Models.Order dataOrder) {
-            //TODO
-        }
-
         public static List<DTO.Models.Order> Map(List<DAL.Models.Order> orders) {
             List<DTO.Models.Order> newOrders = new List<DTO.Models.Order>();
             if (orders != null && orders.Count >= 0)
@@ -43,10 +39,6 @@ namespace DAL.Mapper {
                 return newOrders;
             }
 
-            return null;
-        }
-        public static List<DAL.Models.Order> Map(List<DTO.Models.Order> orders) {
-            //TODO
             return null;
         }
     }

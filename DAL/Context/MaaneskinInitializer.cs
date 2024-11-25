@@ -30,18 +30,10 @@ namespace DAL.Context {
                 context.Items.Add(new Item("Grandin", 0, "Grandin.jpg", 1));
                 context.Items.Add(new Item("Rød Sodavand", 0, "Rødsodavand.jpg", 1));
             }
-
-            //ORDERS
-            {
-                Order o1 = new Order();
-                o1.AddOrderLine(new OrderLine());
-            }
-
-
             context.SaveChanges();
         }
 
-        //Dont fucking touch dummy or the Project wont recognize the damn DB
+        //Dont touch dummy or the Project wont recognize the DB
         private void dummy() {
             string result = System.Data.Entity.SqlServer.SqlFunctions.Char(65);
         }

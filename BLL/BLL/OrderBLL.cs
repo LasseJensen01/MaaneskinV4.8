@@ -15,9 +15,5 @@ namespace BLL.BLL {
         public void AddOrder(DTO.Models.Order order) {
             DAL.Repositories.OrderRepositorie.AddOrder(order);
         }
-        public void UpdateOrder(DTO.Models.Order order) {
-            DAL.Repositories.OrderRepositorie.UpdateOrder(order);
-        }
-
     }
 }

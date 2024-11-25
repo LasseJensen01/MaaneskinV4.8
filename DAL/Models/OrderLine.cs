@@ -7,7 +7,7 @@ using System.Web;
 namespace DAL.Models
 {
     public class OrderLine {
-        public int ID { get; set; } // Maybe Redundant
+        public int ID { get; set; }
         public int Quantity { get; set; }
         public Item Item { get; set; }
         // Foreign key
@@ -32,10 +32,6 @@ namespace DAL.Models
         public double GetTotal()
         {
             return Quantity * Item.Price;
-        }
-        public override string ToString()
-        {
-            return $"{Quantity} x {Item.Name} à {TotalPrice/Quantity} kr.";
         }
     }
 }

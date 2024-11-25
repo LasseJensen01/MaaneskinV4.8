@@ -33,16 +33,6 @@ namespace SpecFlowTest.StepDefinitions {
             _datetime = DateTime.Parse(_date);
         }
 
-        [Given(@"following orders exist:")]
-        public void GivenFollowingOrdersExist(Table table) {
-            // This table shit is sus so if test fails here it may just be specflow being cringe
-            foreach (var row in table.Rows) {
-                Order o = new Order(Int32.Parse(row["ID"]));
-                o.Date = DateTime.Parse(row["Date"]);
-                _orderList.Add(o);
-            }
-        }
-
         [When (@"I create Order")]
         public void WhenICreateOrder() {
             _order = new Order(_id);

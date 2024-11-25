@@ -14,7 +14,6 @@ namespace DAL.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public string ImgURL { get; set; }
-        public bool IsDeleted { get; set; }
         public Item(string name, double price, string imgURL, int quantity)
         {
             ID = DTO.Models.IDIncrementClass.GenerateID();
@@ -22,8 +21,6 @@ namespace DAL.Models
             Price = price;
             ImgURL = imgURL;
             Quantity = quantity;
-
-            IsDeleted = false;
         }
 
         // Made for Mappers
@@ -33,9 +30,6 @@ namespace DAL.Models
             Price = price;
             ImgURL = imgURL;
             Quantity = quantity;
-
-            // IsDeleted = false ? Price > 0 : IsDeleted = true; // Marks an item as deleted if listed price is 0
-            IsDeleted = false;
             
         }
         public Item() { }

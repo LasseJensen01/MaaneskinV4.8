@@ -7,7 +7,6 @@ Feature: Se en oversigt over over gemte ordre linjer i databasen
 	Then I have parameters as ID 1, Date 2001-9-11 8:46:00.000
 
 
-
 	Scenario: TC10.2 An Orders correctly calculates its total price
 	Given Parameters, ID 1, Date 2001-9-11 8:46:00.000
 	Then I have a order with value of 62

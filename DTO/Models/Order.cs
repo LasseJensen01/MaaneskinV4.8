@@ -9,7 +9,7 @@ namespace DTO.Models
     {
         public int ID { get; set; }
         public DateTime Date { get; set; }
-        public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>(); // This is cursed
+        public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
 
         public Order() {
             
@@ -22,9 +22,6 @@ namespace DTO.Models
 
         public void AddOrderLine(OrderLine orderLine) {
             this.OrderLines.Add(orderLine);
-        }
-        public bool RemoveOrderline(OrderLine orderLine) {
-            return this.OrderLines.Remove(orderLine);
         }
         public double GetTotalOrderPrice()
         {
