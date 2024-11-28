@@ -49,6 +49,7 @@
                 $(this).val(@Model.Price);
             } else {
                 priceString = price.toFixed(2);
+                priceString = priceString.replace(".",",")
                 $(this).val(priceString)
             }
         });
